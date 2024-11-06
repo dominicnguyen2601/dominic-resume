@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",                      // Specify ECMAScript target version
+    "module": "esnext",                      // Specify module code generation
+    "moduleResolution": "node",               // Module resolution strategy
+    "strict": true,                          // Enable all strict type-checking options
+    "jsx": "react-jsx",                      // JSX code generation
+    "lib": ["DOM", "ESNext"],                // Include the DOM and ESNext libraries
+    "skipLibCheck": true,                    // Skip type checking of declaration files
+    "esModuleInterop": true,    
+    "allowImportingTsExtensions": true,    
+    "noEmit": true,          // Enables emit interoperability between CommonJS and ES Modules
+    "forceConsistentCasingInFileNames": true,// Disallow inconsistently-cased references to the same file
+    "resolveJsonModule": true,                // Allows importing JSON files
+    "isolatedModules": true,                  // Ensure each file can be safely transpiled independently
+    "baseUrl": "./src",                      // Base directory to resolve non-relative module names
+    "paths": {
+      "@/*": ["*"]                           // Allows importing modules using the '@' alias
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"], // Include all TypeScript and TSX files in the src directory
+  "exclude": ["node_modules", "dist"]       // Exclude node_modules and output directory
+}
