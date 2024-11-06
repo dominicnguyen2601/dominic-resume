@@ -1,4 +1,6 @@
 import React from "react";
+import avatar from '../assets/images/avatar2.jpg';
+
 
 interface SocialIconProps {
   href: string;
@@ -26,13 +28,14 @@ const StatItem: React.FC<StatItemProps> = ({ value, label }) => (
 );
 
 const Page: React.FC = () => {
+  
   return (
     <div className="min-h-screen bg-black text-white p-8 md:p-12 lg:p-16">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[3/4] bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg overflow-hidden">
             <img
-              src="src/assets/images/avatar2.jpg"
+              src={avatar}
               alt="Profile"
               className="object-cover w-full h-full"
             />
