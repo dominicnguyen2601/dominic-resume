@@ -1,7 +1,7 @@
 import { Experience, Project, SkillCategory } from './types';
 
 export const PERSONAL_INFO = {
-  name: "Nguyen Tien Tai",
+  name: "Dominic Nguyen",
   role: "Senior Software Engineer",
   email: "tientainguyen.coding@gmail.com",
   phone: "+84 34783 6767",

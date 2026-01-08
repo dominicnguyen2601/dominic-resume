@@ -55,7 +55,7 @@ const App: React.FC = () => {
         
         {/* Mobile Header */}
         <header className="md:hidden flex items-center justify-between px-6 py-4 bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-20">
-          <div className="font-bold text-white text-lg">Nguyen Tien Tai</div>
+          <div className="font-bold text-white text-lg">Dominic Nguyen</div>
           <button 
             onClick={() => setIsSidebarOpen(true)}
             className="p-2 text-slate-400 hover:text-white bg-slate-800 rounded-lg"

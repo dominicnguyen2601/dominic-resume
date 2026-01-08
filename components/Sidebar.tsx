@@ -12,6 +12,8 @@ import {
 import { PERSONAL_INFO } from '../constants';
 import { Tab } from '../types';
 
+const avatarImg = '/avatar.jpg'; // Use public folder or static path
+
 interface SidebarProps {
   activeTab: Tab;
   setActiveTab: (tab: Tab) => void;
@@ -64,8 +66,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
               {/* Avatar container */}
               <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-slate-700 ring-offset-2 ring-offset-slate-900">
                 <img 
-                  src="/media/avatar.jpg" 
-                  alt="Nguyen Tien Tai"
+                  src={avatarImg} 
+                  alt="Dominic Nguyen"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -74,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
               <div className="absolute bottom-1 right-1 w-4 h-4 bg-primary rounded-full border-2 border-slate-900 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
             </div>
             
-            <h1 className="text-xl font-bold text-white tracking-tight">Nguyen Tien Tai</h1>
+            <h1 className="text-xl font-bold text-white tracking-tight">Dominic Nguyen</h1>
             <p className="text-xs text-primary font-medium mt-1 uppercase tracking-wider">Senior Software Engineer</p>
           </div>
         </div>
