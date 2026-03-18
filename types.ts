@@ -28,7 +28,16 @@ export enum Tab {
   SKILLS = 'Skills',
   PROJECTS = 'Projects',
   TESTIMONIALS = 'Testimonials',
+  RATINGS = 'Ratings',
   CONTACT = 'Contact'
+}
+
+export interface RatingCategory {
+  id: string;
+  name: string;
+  description: string;
+  rating: number;
+  totalVotes: number;
 }
 
 export interface Testimonial {

@@ -8,7 +8,8 @@ import {
   X,
   Github,
   Linkedin,
-  MessageSquareQuote
+  MessageSquareQuote,
+  Star
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../constants';
 import { Tab } from '../types';
@@ -30,6 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
     { id: Tab.PROJECTS, icon: FolderGit2, label: 'Projects' },
     { id: Tab.SKILLS, icon: Code2, label: 'Tech Stack' },
     { id: Tab.TESTIMONIALS, icon: MessageSquareQuote, label: 'Testimonials' },
+    { id: Tab.RATINGS, icon: Star, label: 'Ratings' },
     { id: Tab.CONTACT, icon: Mail, label: 'Contact' },
   ];
 

@@ -1,4 +1,4 @@
-import { Experience, Project, SkillCategory, Testimonial } from './types';
+import { Experience, Project, SkillCategory, Testimonial, RatingCategory } from './types';
 
 export const PERSONAL_INFO = {
   name: "Dominic Nguyen",
@@ -170,5 +170,51 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     projectName: "Corsair Gaming",
     image: "/testimonial/2.png",
     caption: "Great collaboration on the device configuration tool. The UI is intuitive and performant."
+  }
+];
+
+// Base ratings data - updated with user votes via localStorage
+export const RATINGS_DATA: RatingCategory[] = [
+  {
+    id: "professionalism",
+    name: "Professionalism",
+    description: "Đúng deadline, làm việc có trách nhiệm",
+    rating: 4.8,
+    totalVotes: 42
+  },
+  {
+    id: "technical",
+    name: "Technical Skills",
+    description: "Năng lực kỹ thuật, code quality",
+    rating: 4.9,
+    totalVotes: 38
+  },
+  {
+    id: "communication",
+    name: "Communication",
+    description: "Giao tiếp rõ ràng, trình bày ý tưởng tốt",
+    rating: 4.6,
+    totalVotes: 45
+  },
+  {
+    id: "teamwork",
+    name: "Team Collaboration",
+    description: "Làm việc nhóm, hỗ trợ đồng nghiệp",
+    rating: 4.7,
+    totalVotes: 40
+  },
+  {
+    id: "problem_solving",
+    name: "Problem Solving",
+    description: "Khả năng phân tích và giải quyết vấn đề",
+    rating: 4.8,
+    totalVotes: 36
+  },
+  {
+    id: "mentorship",
+    name: "Mentorship",
+    description: "Hướng dẫn, chia sẻ kiến thức với team",
+    rating: 4.5,
+    totalVotes: 28
   }
 ];
