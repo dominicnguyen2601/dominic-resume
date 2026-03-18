@@ -4,6 +4,7 @@ import Overview from './components/Overview';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import { Tab } from './types';
 import { Menu } from 'lucide-react';
@@ -33,6 +34,8 @@ const App: React.FC = () => {
         return <Skills />;
       case Tab.PROJECTS:
         return <Projects />;
+      case Tab.TESTIMONIALS:
+        return <Testimonials />;
       case Tab.CONTACT:
         return <Contact />;
       default:

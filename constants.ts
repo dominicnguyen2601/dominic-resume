@@ -1,4 +1,4 @@
-import { Experience, Project, SkillCategory } from './types';
+import { Experience, Project, SkillCategory, Testimonial } from './types';
 
 export const PERSONAL_INFO = {
   name: "Dominic Nguyen",
@@ -153,5 +153,22 @@ export const EXPERIENCE_DATA: Experience[] = [
       "Debugging and testing user flows."
     ],
     technologies: ["ReactJS", "MySQL", "NodeJs", "Bootstrap"]
+  }
+];
+
+// Testimonial images from clients
+// Add more by placing images in /public/testimonial/ and updating this array
+export const TESTIMONIALS_DATA: Testimonial[] = [
+  {
+    id: "t1",
+    projectName: "The Very Group",
+    image: "/testimonial/1.png",
+    caption: "Excellent work on the eCommerce platform transformation. Dominic delivered high-quality React components ahead of schedule."
+  },
+  {
+    id: "t2",
+    projectName: "Corsair Gaming",
+    image: "/testimonial/2.png",
+    caption: "Great collaboration on the device configuration tool. The UI is intuitive and performant."
   }
 ];

@@ -1,13 +1,14 @@
 import React from 'react';
-import { 
-  User, 
-  Briefcase, 
-  Code2, 
-  FolderGit2, 
-  Mail, 
+import {
+  User,
+  Briefcase,
+  Code2,
+  FolderGit2,
+  Mail,
   X,
   Github,
-  Linkedin
+  Linkedin,
+  MessageSquareQuote
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../constants';
 import { Tab } from '../types';
@@ -28,6 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
     { id: Tab.EXPERIENCE, icon: Briefcase, label: 'Experience' },
     { id: Tab.PROJECTS, icon: FolderGit2, label: 'Projects' },
     { id: Tab.SKILLS, icon: Code2, label: 'Tech Stack' },
+    { id: Tab.TESTIMONIALS, icon: MessageSquareQuote, label: 'Testimonials' },
     { id: Tab.CONTACT, icon: Mail, label: 'Contact' },
   ];
 
