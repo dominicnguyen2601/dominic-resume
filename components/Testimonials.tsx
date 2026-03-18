@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { TESTIMONIALS_DATA } from '../constants';
-import { Grid3X3, SlidersHorizontal, ChevronLeft, ChevronRight, X, Quote } from 'lucide-react';
+import { Grid3X3, SlidersHorizontal, ChevronLeft, ChevronRight, X, Quote, ChevronDown, Check } from 'lucide-react';
 
 type ViewMode = 'grid' | 'slide';
 
@@ -9,6 +10,7 @@ const Testimonials: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<string>('all');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Get unique project names for filter
   const projectNames = useMemo(() => {
@@ -55,31 +57,50 @@ const Testimonials: React.FC = () => {
   }, [viewMode, filteredTestimonials.length, lightboxImage]);
 
   return (
-    <div className="space-y-8 animate-fade-in max-w-5xl mx-auto px-1">
+    <div className="space-y-8 animate-fade-in">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold mb-3 theme-text uppercase tracking-tight">Client Testimonials</h2>
-        <p className="theme-text-muted max-w-lg mx-auto leading-relaxed">
-          Feedback and validation from industry partners and clients I've had the pleasure of working with.
-        </p>
+      <div className="mb-8 px-1">
+        <h2 className="text-2xl font-bold theme-text uppercase tracking-tight">Client Testimonials</h2>
+        <p className="theme-text-muted mt-1">Feedback from industry partners and clients I've worked with</p>
       </div>
 
       {/* Controls */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl border theme-bg-card theme-border-subtle shadow-sm">
-        {/* Project Filter */}
+        {/* Project Filter - Custom Dropdown */}
         <div className="flex items-center gap-3 w-full sm:w-auto">
           <label className="text-[10px] font-bold uppercase tracking-widest theme-text-dimmed">Filter:</label>
-          <select
-            value={selectedProject}
-            onChange={(e) => setSelectedProject(e.target.value)}
-            className="flex-1 sm:flex-none border rounded-xl px-4 py-2 text-sm outline-none transition-all theme-bg-input theme-text theme-border-subtle focus:theme-border min-w-0 sm:min-w-[200px]"
-          >
-            {projectNames.map((name) => (
-              <option key={name} value={name}>
-                {name === 'all' ? 'All Projects' : name}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="flex items-center justify-between gap-2 border rounded-xl px-4 py-2 text-sm transition-all theme-bg-input theme-text theme-border-subtle hover:theme-border focus:theme-border min-w-[180px]"
+            >
+              <span>{selectedProject === 'all' ? 'All Projects' : selectedProject}</span>
+              <ChevronDown size={16} className={`theme-text-muted transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {dropdownOpen && (
+              <>
+                <div className="fixed inset-0 z-10" onClick={() => setDropdownOpen(false)} />
+                <div className="absolute top-full left-0 mt-2 w-full min-w-[200px] py-1 rounded-xl border shadow-lg z-20 theme-bg-card theme-border-subtle">
+                  {projectNames.map((name) => (
+                    <button
+                      key={name}
+                      onClick={() => {
+                        setSelectedProject(name);
+                        setDropdownOpen(false);
+                      }}
+                      className={`w-full flex items-center justify-between px-4 py-2 text-sm text-left transition-colors hover:theme-bg-hover ${
+                        selectedProject === name ? 'theme-primary' : 'theme-text'
+                      }`}
+                    >
+                      <span>{name === 'all' ? 'All Projects' : name}</span>
+                      {selectedProject === name && <Check size={16} />}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
 
         {/* View Toggle */}
@@ -240,37 +261,27 @@ const Testimonials: React.FC = () => {
         </div>
       )}
 
-      {/* Improved Lightbox Modal */}
-      {lightboxImage && (
+      {/* Lightbox - Portal to body for true fullscreen overlay */}
+      {lightboxImage && createPortal(
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl animate-fade-in"
-          style={{ animationDuration: '0.2s' }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75"
           onClick={() => setLightboxImage(null)}
         >
-          {/* Close Area Label */}
-          <div className="absolute top-8 left-1/2 -translate-x-1/2 text-white/40 text-[10px] font-bold uppercase tracking-widest pointer-events-none">
-            Click anywhere outside to close
-          </div>
-
+          {/* Close button */}
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightboxImage(null);
-            }}
-            className="absolute top-6 right-6 sm:top-8 sm:right-8 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:rotate-90 active:scale-90 z-[110]"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white/80 hover:text-white transition-all"
           >
-            <X size={32} />
+            <X size={24} />
           </button>
-          
-          <div className="relative w-full h-full flex items-center justify-center">
-            <img
-              src={lightboxImage}
-              alt="Testimonial Expanded"
-              className="max-w-full max-h-full object-contain rounded-lg shadow-[0_0_80px_rgba(0,0,0,0.8)] select-none animate-fade-in"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        </div>
+
+          {/* Centered image */}
+          <img
+            src={lightboxImage}
+            alt="Testimonial Expanded"
+            className="max-w-[90vw] max-h-[90vh] object-contain"
+          />
+        </div>,
+        document.body
       )}
     </div>
   );

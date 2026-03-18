@@ -65,10 +65,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in max-w-4xl mx-auto px-1">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-3 theme-text uppercase tracking-tight">Get In Touch</h2>
-        <p className="theme-text-muted max-w-lg mx-auto leading-relaxed">Feel free to reach out for collaborations or opportunities. I'll get back to you as soon as possible.</p>
+    <div className="space-y-8 animate-fade-in">
+      <div className="mb-8 px-1">
+        <h2 className="text-2xl font-bold theme-text uppercase tracking-tight">Get In Touch</h2>
+        <p className="theme-text-muted mt-1">Feel free to reach out for collaborations or opportunities</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
