@@ -1,0 +1,459 @@
+/* ==========================================
+   THEME SYSTEM - CSS Custom Properties
+   ========================================== */
+
+/* Default Dark Theme (Current) */
+:root,
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --bg-input: #0f172a;
+  --bg-hover: #334155;
+  --bg-badge: rgba(30, 41, 59, 0.5);
+
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-primary-subtle: rgba(16, 185, 129, 0.1);
+  --color-primary-glow: rgba(16, 185, 129, 0.5);
+  --color-primary-shadow: rgba(16, 185, 129, 0.2);
+
+  --color-secondary: #3b82f6;
+  --color-secondary-subtle: rgba(59, 130, 246, 0.1);
+
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dimmed: #64748b;
+
+  --border-primary: #334155;
+  --border-subtle: rgba(51, 65, 85, 0.5);
+  --border-hover: #475569;
+
+  --scrollbar-track: #0f172a;
+  --scrollbar-thumb: #334155;
+  --scrollbar-thumb-hover: #475569;
+
+  --overlay: rgba(0, 0, 0, 0.6);
+
+  /* Gradient stops */
+  --gradient-from: #1e293b;
+  --gradient-to: #0f172a;
+
+  /* Chart colors */
+  --chart-primary: #10b981;
+  --chart-secondary: #3b82f6;
+  --chart-grid: #334155;
+  --chart-tooltip-bg: #1e293b;
+  --chart-tooltip-border: #334155;
+
+  /* Rings & decorative */
+  --ring-offset: #0f172a;
+  --ring-color: #334155;
+  --dot-glow: rgba(16, 185, 129, 0.6);
+
+  /* Theme meta */
+  --theme-type: dark;
+}
+
+/* Classic Professional: Navy Blue, White, and Charcoal */
+[data-theme="classic"] {
+  --bg-primary: #0c1f3f;
+  --bg-secondary: #152d54;
+  --bg-card: #152d54;
+  --bg-input: #0c1f3f;
+  --bg-hover: #1e3a6b;
+  --bg-badge: rgba(21, 45, 84, 0.5);
+
+  --color-primary: #f0f4f8;
+  --color-primary-hover: #d9e2ec;
+  --color-primary-subtle: rgba(240, 244, 248, 0.1);
+  --color-primary-glow: rgba(240, 244, 248, 0.4);
+  --color-primary-shadow: rgba(240, 244, 248, 0.15);
+
+  --color-secondary: #7eb8da;
+  --color-secondary-subtle: rgba(126, 184, 218, 0.1);
+
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #a0b4c8;
+  --text-dimmed: #6b8299;
+
+  --border-primary: #1e3a6b;
+  --border-subtle: rgba(30, 58, 107, 0.5);
+  --border-hover: #2a4f8a;
+
+  --scrollbar-track: #0c1f3f;
+  --scrollbar-thumb: #1e3a6b;
+  --scrollbar-thumb-hover: #2a4f8a;
+
+  --overlay: rgba(0, 0, 0, 0.6);
+
+  --gradient-from: #152d54;
+  --gradient-to: #0c1f3f;
+
+  --chart-primary: #7eb8da;
+  --chart-secondary: #f0f4f8;
+  --chart-grid: #1e3a6b;
+  --chart-tooltip-bg: #152d54;
+  --chart-tooltip-border: #1e3a6b;
+
+  --ring-offset: #0c1f3f;
+  --ring-color: #1e3a6b;
+  --dot-glow: rgba(126, 184, 218, 0.6);
+
+  --theme-type: dark;
+}
+
+/* Modern Executive: Charcoal Gray, Light Blue, and White */
+[data-theme="executive"] {
+  --bg-primary: #1f2937;
+  --bg-secondary: #2d3748;
+  --bg-card: #2d3748;
+  --bg-input: #1f2937;
+  --bg-hover: #3d4f65;
+  --bg-badge: rgba(45, 55, 72, 0.5);
+
+  --color-primary: #60a5fa;
+  --color-primary-hover: #3b82f6;
+  --color-primary-subtle: rgba(96, 165, 250, 0.1);
+  --color-primary-glow: rgba(96, 165, 250, 0.5);
+  --color-primary-shadow: rgba(96, 165, 250, 0.2);
+
+  --color-secondary: #e2e8f0;
+  --color-secondary-subtle: rgba(226, 232, 240, 0.1);
+
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #a0aec0;
+  --text-dimmed: #718096;
+
+  --border-primary: #3d4f65;
+  --border-subtle: rgba(61, 79, 101, 0.5);
+  --border-hover: #4a6078;
+
+  --scrollbar-track: #1f2937;
+  --scrollbar-thumb: #3d4f65;
+  --scrollbar-thumb-hover: #4a6078;
+
+  --overlay: rgba(0, 0, 0, 0.6);
+
+  --gradient-from: #2d3748;
+  --gradient-to: #1f2937;
+
+  --chart-primary: #60a5fa;
+  --chart-secondary: #e2e8f0;
+  --chart-grid: #3d4f65;
+  --chart-tooltip-bg: #2d3748;
+  --chart-tooltip-border: #3d4f65;
+
+  --ring-offset: #1f2937;
+  --ring-color: #3d4f65;
+  --dot-glow: rgba(96, 165, 250, 0.6);
+
+  --theme-type: dark;
+}
+
+/* Neutral Elegance: Beige, Dark Grey, Cream */
+[data-theme="elegant"] {
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #ebe5d9;
+  --bg-card: #ffffff;
+  --bg-input: #f5f0e8;
+  --bg-hover: #e0d9cc;
+  --bg-badge: rgba(235, 229, 217, 0.6);
+
+  --color-primary: #6b5b47;
+  --color-primary-hover: #574a3a;
+  --color-primary-subtle: rgba(107, 91, 71, 0.1);
+  --color-primary-glow: rgba(107, 91, 71, 0.3);
+  --color-primary-shadow: rgba(107, 91, 71, 0.15);
+
+  --color-secondary: #8b7355;
+  --color-secondary-subtle: rgba(139, 115, 85, 0.1);
+
+  --text-primary: #2d2418;
+  --text-secondary: #3d3428;
+  --text-muted: #7a6e5d;
+  --text-dimmed: #9e9282;
+
+  --border-primary: #d4cbbe;
+  --border-subtle: rgba(212, 203, 190, 0.5);
+  --border-hover: #b8ad9e;
+
+  --scrollbar-track: #f5f0e8;
+  --scrollbar-thumb: #c4b9a9;
+  --scrollbar-thumb-hover: #a89d8e;
+
+  --overlay: rgba(0, 0, 0, 0.3);
+
+  --gradient-from: #ebe5d9;
+  --gradient-to: #f5f0e8;
+
+  --chart-primary: #6b5b47;
+  --chart-secondary: #8b7355;
+  --chart-grid: #d4cbbe;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: #d4cbbe;
+
+  --ring-offset: #f5f0e8;
+  --ring-color: #d4cbbe;
+  --dot-glow: rgba(107, 91, 71, 0.4);
+
+  --theme-type: light;
+}
+
+/* Creative/Marketing: Burgundy, Mustard, Copper */
+[data-theme="creative"] {
+  --bg-primary: #2a1215;
+  --bg-secondary: #3d1c21;
+  --bg-card: #3d1c21;
+  --bg-input: #2a1215;
+  --bg-hover: #52272d;
+  --bg-badge: rgba(61, 28, 33, 0.5);
+
+  --color-primary: #d4a574;
+  --color-primary-hover: #c9965f;
+  --color-primary-subtle: rgba(212, 165, 116, 0.1);
+  --color-primary-glow: rgba(212, 165, 116, 0.5);
+  --color-primary-shadow: rgba(212, 165, 116, 0.2);
+
+  --color-secondary: #c9a227;
+  --color-secondary-subtle: rgba(201, 162, 39, 0.1);
+
+  --text-primary: #faf0e6;
+  --text-secondary: #f0ddd0;
+  --text-muted: #c4a896;
+  --text-dimmed: #8b7166;
+
+  --border-primary: #52272d;
+  --border-subtle: rgba(82, 39, 45, 0.5);
+  --border-hover: #6b343c;
+
+  --scrollbar-track: #2a1215;
+  --scrollbar-thumb: #52272d;
+  --scrollbar-thumb-hover: #6b343c;
+
+  --overlay: rgba(0, 0, 0, 0.6);
+
+  --gradient-from: #3d1c21;
+  --gradient-to: #2a1215;
+
+  --chart-primary: #d4a574;
+  --chart-secondary: #c9a227;
+  --chart-grid: #52272d;
+  --chart-tooltip-bg: #3d1c21;
+  --chart-tooltip-border: #52272d;
+
+  --ring-offset: #2a1215;
+  --ring-color: #52272d;
+  --dot-glow: rgba(212, 165, 116, 0.6);
+
+  --theme-type: dark;
+}
+
+/* ==========================================
+   BASE STYLES
+   ========================================== */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Smooth theme transitions on all themed elements */
+*,
+*::before,
+*::after {
+  transition: background-color 0.35s ease,
+              border-color 0.35s ease,
+              color 0.25s ease,
+              box-shadow 0.35s ease;
+}
+
+/* Exclude elements that should NOT have transitions */
+input, textarea, select, button, a,
+[class*="animate-"],
+.recharts-surface,
+.recharts-wrapper,
+.recharts-layer,
+svg, path, circle, line, rect, polygon,
+.no-theme-transition {
+  transition: none !important;
+}
+
+/* Re-enable specific transitions for interactive elements */
+input, textarea {
+  transition: border-color 0.2s ease !important;
+}
+
+button, a {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+/* ==========================================
+   SCROLLBAR
+   ========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ==========================================
+   THEME-AWARE UTILITY CLASSES
+   ========================================== */
+
+/* Backgrounds */
+.theme-bg { background-color: var(--bg-primary); }
+.theme-bg-secondary { background-color: var(--bg-secondary); }
+.theme-bg-card { background-color: var(--bg-card); }
+.theme-bg-input { background-color: var(--bg-input); }
+.theme-bg-hover:hover { background-color: var(--bg-hover); }
+.theme-bg-badge { background-color: var(--bg-badge); }
+
+/* Text */
+.theme-text { color: var(--text-primary); }
+.theme-text-secondary { color: var(--text-secondary); }
+.theme-text-muted { color: var(--text-muted); }
+.theme-text-dimmed { color: var(--text-dimmed); }
+
+/* Primary color */
+.theme-primary { color: var(--color-primary); }
+.theme-primary-bg { background-color: var(--color-primary); }
+.theme-primary-bg-subtle { background-color: var(--color-primary-subtle); }
+.theme-primary-hover:hover { background-color: var(--color-primary-hover); }
+
+/* Secondary color */
+.theme-secondary { color: var(--color-secondary); }
+.theme-secondary-bg { background-color: var(--color-secondary); }
+.theme-secondary-bg-subtle { background-color: var(--color-secondary-subtle); }
+
+/* Borders */
+.theme-border { border-color: var(--border-primary); }
+.theme-border-subtle { border-color: var(--border-subtle); }
+.theme-border-hover:hover { border-color: var(--border-hover); }
+
+/* Gradient */
+.theme-gradient {
+  background: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-to));
+}
+.theme-gradient-r {
+  background: linear-gradient(to right, var(--gradient-to), var(--gradient-from));
+}
+
+/* Ring effects */
+.theme-ring {
+  --tw-ring-color: var(--ring-color);
+  --tw-ring-offset-color: var(--ring-offset);
+}
+
+/* Glow */
+.theme-glow-primary {
+  box-shadow: 0 0 8px var(--dot-glow);
+}
+
+/* Overlay */
+.theme-overlay {
+  background-color: var(--overlay);
+}
+
+/* ==========================================
+   THEME SWITCHER STYLES
+   ========================================== */
+
+.theme-switcher-popover {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.05);
+  z-index: 50;
+  min-width: 220px;
+  backdrop-filter: blur(16px);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.theme-option:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-subtle);
+}
+
+.theme-option.active {
+  background: var(--color-primary-subtle);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.theme-swatch {
+  display: flex;
+  gap: 2px;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 32px;
+  height: 22px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.theme-swatch-color {
+  flex: 1;
+  height: 100%;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes popoverIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px) scale(0.95); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+.theme-switcher-popover {
+  animation: popoverIn 0.2s ease-out forwards;
+}

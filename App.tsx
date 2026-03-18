@@ -41,7 +41,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex font-sans text-slate-200">
+    <div className="min-h-screen flex font-sans" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-secondary)' }}>
       {/* Sidebar */}
       <Sidebar 
         activeTab={activeTab} 
@@ -54,11 +54,21 @@ const App: React.FC = () => {
       <main className="flex-1 md:ml-72 flex flex-col min-h-screen relative">
         
         {/* Mobile Header */}
-        <header className="md:hidden flex items-center justify-between px-6 py-4 bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-20">
-          <div className="font-bold text-white text-lg">Dominic Nguyen</div>
+        <header
+          className="md:hidden flex items-center justify-between px-6 py-4 backdrop-blur sticky top-0 z-20"
+          style={{
+            backgroundColor: 'var(--bg-secondary)',
+            borderBottom: '1px solid var(--border-primary)',
+          }}
+        >
+          <div className="font-bold text-lg" style={{ color: 'var(--text-primary)' }}>Dominic Nguyen</div>
           <button 
             onClick={() => setIsSidebarOpen(true)}
-            className="p-2 text-slate-400 hover:text-white bg-slate-800 rounded-lg"
+            className="p-2 rounded-lg"
+            style={{
+              color: 'var(--text-muted)',
+              backgroundColor: 'var(--bg-hover)',
+            }}
           >
             <Menu size={24} />
           </button>
@@ -70,17 +80,6 @@ const App: React.FC = () => {
         </div>
 
       </main>
-
-      {/* Global styles for animation */}
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.4s ease-out forwards;
-        }
-      `}</style>
     </div>
   );
 };

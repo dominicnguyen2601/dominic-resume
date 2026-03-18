@@ -10,6 +10,10 @@ export const PERSONAL_INFO = {
   education: "FPT University, Software Engineering (2016-2020) | EnglishScore Certificate (B2)"
 };
 
+// Google Docs CV - exports as PDF when downloaded
+// To update: Edit the Google Doc directly, changes sync automatically
+export const CV_URL = "https://docs.google.com/document/d/1ZUKZpoGppFHe0530xIf9YQvuaAXSVUQFFpNjxwsvamU/export?format=pdf";
+
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: "Frontend Core",

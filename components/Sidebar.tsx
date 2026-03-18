@@ -11,8 +11,9 @@ import {
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../constants';
 import { Tab } from '../types';
+import ThemeSwitcher from './ThemeSwitcher';
 
-const avatarImg = '/avatar.jpg'; // Use public folder or static path
+const avatarImg = '/avatar.jpg'; 
 
 interface SidebarProps {
   activeTab: Tab;
@@ -35,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
       {/* Overlay for mobile */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 z-20 md:hidden backdrop-blur-sm"
+          className="fixed inset-0 z-20 md:hidden backdrop-blur-sm theme-overlay"
           onClick={toggleSidebar}
         />
       )}
@@ -43,16 +44,17 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
       {/* Sidebar Container */}
       <aside 
         className={`
-          fixed top-0 left-0 z-30 h-full w-72 bg-dark-lighter border-r border-slate-700 
+          fixed top-0 left-0 z-30 h-full w-72 border-r 
           transform transition-transform duration-300 ease-in-out flex flex-col
+          theme-bg-secondary theme-border
           ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0
         `}
       >
         {/* Header with Avatar */}
-        <div className="p-6 border-b border-slate-700">
+        <div className="p-6 border-b theme-border">
           <div className="flex justify-between items-start mb-4">
             <div className="flex-1" />
-            <button onClick={toggleSidebar} className="md:hidden text-slate-400 hover:text-white">
+            <button onClick={toggleSidebar} className="md:hidden theme-text-muted hover:theme-text">
               <X size={24} />
             </button>
           </div>
@@ -61,10 +63,19 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
           <div className="flex flex-col items-center text-center">
             <div className="relative group mb-4">
               {/* Animated ring */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-emerald-400 to-teal-500 rounded-full opacity-75 blur-sm group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+              <div 
+                className="absolute -inset-1 rounded-full opacity-75 blur-sm group-hover:opacity-100 transition-opacity duration-300 animate-pulse"
+                style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}
+              />
               
               {/* Avatar container */}
-              <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-slate-700 ring-offset-2 ring-offset-slate-900">
+              <div 
+                className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-offset-2"
+                style={{ 
+                  '--tw-ring-color': 'var(--border-primary)',
+                  '--tw-ring-offset-color': 'var(--bg-primary)'
+                } as React.CSSProperties}
+              >
                 <img 
                   src={avatarImg} 
                   alt="Dominic Nguyen"
@@ -73,11 +84,11 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
               </div>
               
               {/* Online indicator */}
-              <div className="absolute bottom-1 right-1 w-4 h-4 bg-primary rounded-full border-2 border-slate-900 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+              <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 theme-primary-bg theme-glow-primary theme-border" />
             </div>
             
-            <h1 className="text-xl font-bold text-white tracking-tight">Dominic Nguyen</h1>
-            <p className="text-xs text-primary font-medium mt-1 uppercase tracking-wider">Senior Software Engineer</p>
+            <h1 className="text-xl font-bold tracking-tight theme-text">Dominic Nguyen</h1>
+            <p className="text-xs font-medium mt-1 uppercase tracking-wider theme-primary">Senior Software Engineer</p>
           </div>
         </div>
 
@@ -96,18 +107,18 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
                 className={`
                   w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group
                   ${isActive 
-                    ? 'bg-primary/10 text-primary shadow-lg shadow-primary/5' 
-                    : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                    ? 'theme-primary-bg-subtle theme-primary shadow-lg shadow-primary-shadow' 
+                    : 'theme-text-muted hover:theme-bg-hover hover:theme-text'
                   }
                 `}
               >
                 <Icon 
                   size={20} 
-                  className={`transition-colors ${isActive ? 'text-primary' : 'text-slate-400 group-hover:text-white'}`} 
+                  className={`transition-colors ${isActive ? 'theme-primary' : 'theme-text-muted group-hover:theme-text'}`} 
                 />
                 <span className="font-medium">{item.label}</span>
                 {isActive && (
-                  <div className="ml-auto w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                  <div className="ml-auto w-1.5 h-1.5 rounded-full theme-primary-bg theme-glow-primary" />
                 )}
               </button>
             );
@@ -115,17 +126,20 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen, togg
         </nav>
 
         {/* Footer */}
-        <div className="p-6 border-t border-slate-700">
-          <div className="flex items-center justify-center space-x-4 mb-4">
-             {/* Mock Social Links */}
-             <a href="#" className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+        <div className="p-6 border-t theme-border space-y-4">
+          <div className="flex items-center justify-center space-x-4">
+             <a href="https://github.com/dominicnguyen2601" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors theme-text-muted hover:theme-text hover:theme-bg-hover">
                 <Github size={20} />
              </a>
-             <a href="#" className="p-2 text-slate-400 hover:text-blue-400 hover:bg-slate-800 rounded-lg transition-colors">
+             <a href="https://www.linkedin.com/in/dominic-nguyen-dev/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors theme-text-muted hover:theme-secondary hover:theme-bg-hover">
                 <Linkedin size={20} />
              </a>
           </div>
-          <div className="text-xs text-center text-slate-500">
+          
+          {/* Theme Switcher Integration */}
+          <ThemeSwitcher />
+
+          <div className="text-[10px] text-center uppercase tracking-widest theme-text-dimmed">
             &copy; {new Date().getFullYear()} Portfolio
           </div>
         </div>
